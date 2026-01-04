@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KKGP & KKPM 2026 TCA LINKS</title>
+    
+    <!-- PWA / Web App Meta Tags -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0f172a">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/3063/3063176.png">
+
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -246,7 +254,6 @@
                 <div class="icon-box"><i class="fa-solid fa-hospital-user"></i></div>
                 <div class="link-name">TCA KBM 2026</div>
             </a>
-            <!-- Added KBM Toolkit Link -->
             <a href="https://tinyurl.com/KBMToolkit" class="link-card" target="_blank">
                 <div class="icon-box"><i class="fa-solid fa-toolbox"></i></div>
                 <div class="link-name">KBM Toolkit</div>
@@ -301,7 +308,6 @@
         const categories = document.getElementsByClassName('category-group');
         let totalVisible = 0;
 
-        // Loop through all link cards
         for (let i = 0; i < cards.length; i++) {
             const name = cards[i].innerText.toLowerCase();
             if (name.indexOf(filter) > -1) {
@@ -312,14 +318,21 @@
             }
         }
 
-        // Hide empty categories
         for (let j = 0; j < categories.length; j++) {
             const visibleInCat = categories[j].querySelectorAll('.link-card[style=""]').length;
             categories[j].style.display = visibleInCat > 0 ? "block" : "none";
         }
 
-        // Show empty state if nothing found
         document.getElementById('no-results').style.display = (totalVisible === 0 && filter !== "") ? "block" : "none";
+    }
+
+    // --- APP REGISTRATION SCRIPT ---
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('./sw.js')
+                .then(reg => console.log('Service Worker Registered'))
+                .catch(err => console.error('Service Worker Registration Failed', err));
+        });
     }
 </script>
 
