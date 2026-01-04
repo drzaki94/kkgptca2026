@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KKGP & KKPM 2026 TCA LINKS</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #1e293b;
+            --accent-color: #3b82f6;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-sub: #64748b;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+            color: var(--text-main);
+            line-height: 1.5;
+        }
+
+        .header-section {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-section h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            letter-spacing: -0.025em;
+            text-transform: uppercase;
+        }
+
+        /* Search Bar Styles */
+        .search-container {
+            max-width: 600px;
+            margin: -25px auto 30px auto;
+            padding: 0 20px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .search-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 15px 20px 15px 45px;
+            border-radius: 12px;
+            border: none;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            font-size: 1rem;
+            outline: none;
+            transition: ring 0.2s;
+        }
+
+        .search-input:focus {
+            ring: 2px solid var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 15px;
+            color: var(--text-sub);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px 50px 20px;
+        }
+
+        .category-group {
+            margin-bottom: 35px;
+        }
+
+        .category-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            color: var(--primary-color);
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 8px;
+        }
+
+        .category-title i {
+            margin-right: 10px;
+            color: var(--accent-color);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 12px;
+        }
+
+        .link-card {
+            background: var(--card-bg);
+            padding: 16px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            align-items: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid #e2e8f0;
+        }
+
+        .link-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-color: var(--accent-color);
+        }
+
+        .icon-box {
+            width: 44px;
+            height: 44px;
+            background-color: #eff6ff;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 16px;
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            flex-shrink: 0;
+        }
+
+        .link-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text-main);
+        }
+
+        .whatsapp-btn {
+            background-color: #f0fdf4 !important;
+            border-color: #bbf7d0;
+        }
+        .whatsapp-btn .icon-box {
+            background-color: #25D366;
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .grid { grid-template-columns: 1fr; }
+            .header-section h1 { font-size: 1.2rem; }
+        }
+
+        /* Empty state for search */
+        #no-results {
+            display: none;
+            text-align: center;
+            padding: 40px;
+            color: var(--text-sub);
+        }
+    </style>
+</head>
+<body>
+
+<div class="header-section">
+    <h1>KKGP & KKPM 2026 TCA LINKS</h1>
+</div>
+
+<div class="search-container">
+    <div class="search-wrapper">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <input type="text" id="searchInput" class="search-input" placeholder="Search for a clinic or link..." onkeyup="filterLinks()">
+    </div>
+</div>
+
+<div class="container">
+    <div id="no-results">No links found matching your search.</div>
+
+    <!-- A. MATERNAL AND CHILD HEALTH -->
+    <div class="category-group" data-category="mch">
+        <div class="category-title"><i class="fa-solid fa-baby-carriage"></i> A. Maternal and Child Health (MCH)</div>
+        <div class="grid">
+            <a href="https://jaundicio-62tv8.ondigitalocean.app" class="link-card" target="_blank">
+                <div class="icon-box"><i class="fa-solid fa-baby"></i></div>
+                <div class="link-name">Jaundice App</div>
+            </a>
+            <a href="https://docs.google.com/forms/d/1n0yJY0tboJYilnSXhbV-xpW4U1zERNK0GioUrWR4Tvs/edit?usp=drivesdk" class="link-card" target="_blank">
+                <div class="icon-box"><i class="fa-solid fa-person-pregnant"></i></div>
+                <div class="link-name">PSP (Anemia in Pregnancy)</div>
+            </a>
+            <a href="https://docs.google.com/spreadsheets/u/3/d/1-CaEuuDOG7DsH_qR8LlLRgqR4aq8YBkK2d0PnMkI2Vo/htmlview#" class="link-card" target="_blank">
+                <div class="icon-box"><i class="fa-solid fa-apple-whole"></i></div>
+                <div class="link-name">TCA Dietician (GDM Only)</div>
+            </a>
+            <a href="https://docs.google.com/spreadsheets/d/1vHl6i1_GbE-SQ86ap-As7jq0u7H37WUDA5hK5s28A3A/edit?usp=sharing" class="link-card" target="_blank">
+                <div class="icon-box"><i class="fa-solid fa-user-md"></i></div>
+                <div class="link-name">TCA MO KKPM (MCH) 2026</div>
+            </a>
+        </div>
+    </div>
+
+    <!-- B. NCD -->
+    <div class="category-group" data-category="ncd">
+        <div class="category-title"><i class="fa-solid fa-heart-pulse"></i> B. NCD</div>
+        <div class="grid">
+            <a href="https://docs.google.com/spreadsheets/d/1YpzT9UHLhNqxK4KgWbh4Pf3mEega-auCM43V7eI4lvI/edit?gid=1618380588#gid=1618380588" class="link-card" target="_blank">
+                <div class="icon-box"><i class="fa-solid fa-calendar-check"></i></div>
+                <div class="link-name">PSP (General Appointment)</div>
+            </a>
+            <a href="https://docs.google.com/spreadsheets/d/1RGhK7EoLNtBJI3LidY-LgXD_oNUlPPnz6C5HGjjFB6Q/edit?usp=sharing" class="link-card" target="_blank">
+                <div class="icon-box"><i class="fa-solid fa-utensils"></i></div>
+                <div class="link-name">TCA Dietitian (NCD)</div>
+            </a>
+            <a href="https://docs.google.com/spreadsheets/d/1tJzZ7D0CL2wQUmlZt_S5DZo-LKUjKqj57d1BQ2yP0fw/edit?usp=sharing" class="link-card" target="_blank">
+                <div class="icon-box"><i class="fa-solid fa-chalkboard-user"></i></div>
+                <div class="link-name">TCA KELAS DM (HBA1C 8.0-9.9%)</div>
+            </a>
+            <a href="https://docs.google.com/spreadsheets/d/1Zvhc1__f0BP5AKgXvz4wZB2IDLDAHLFsqSlfQ6pI8Js/edit?usp=sharing" class="link-card" target="_blank">
+                <div class="icon-box"><i class="fa-solid fa-notes-medical"></i></div>
+                <div class="link-name">NCD & PEKA B40 KKPM 2026</div>
+            </a>
+        </div>
+    </div>
+
+    <!-- C. SPECIAL CLINIC -->
+    <div class="category-group" data-category="special">
+        <div class="category-title"><i class="fa-solid fa-star-of-life"></i> C. SPECIAL CLINIC</div>
+        <div class="grid">
+            <a href="https://docs.google.com/spreadsheets/d/1DhxGkDiXKUFwPlm24pKfrOI-NJNtSoGhGiDB9HmgkB0/edit?usp=drivesdk" class="link-card" target="_blank">
+                <div class="icon-box"><i class="fa-solid fa-ribbon"></i></div>
+                <div class="link-name">TCA HIV/STD (Camelia) 2026</div>
+            </a>
+            <a href="https://docs.google.com/spreadsheets/d/1slTkmH4ywHrH8ZYOVHRACqrUoYjqFrm_P9eLiGB9tTQ/edit?gid=0#gid=0" class="link-card" target="_blank">
+                <div class="icon-box"><i class="fa-solid fa-hospital-user"></i></div>
+                <div class="link-name">TCA KBM 2026</div>
+            </a>
+            <!-- Added KBM Toolkit Link -->
+            <a href="https://tinyurl.com/KBMToolkit" class="link-card" target="_blank">
+                <div class="icon-box"><i class="fa-solid fa-toolbox"></i></div>
+                <div class="link-name">KBM Toolkit</div>
+            </a>
+            <a href="https://docs.google.com/spreadsheets/d/1ae7nLfGFJgsglGiucra1BTHvYE3To3u5fdGFDDWRNBY/edit?usp=drivesdk" class="link-card" target="_blank">
+                <div class="icon-box"><i class="fa-solid fa-lungs"></i></div>
+                <div class="link-name">TCA ASTHMA CLINIC</div>
+            </a>
+            <a href="https://docs.google.com/spreadsheets/d/16PwJRl8wzPuRtiemFyu_5msP8IvZBk1hiGwvlVdc9T8/edit?usp=drivesdk" class="link-card" target="_blank">
+                <div class="icon-box"><i class="fa-solid fa-house-medical"></i></div>
+                <div class="link-name">TCA DAHLIA CLINIC</div>
+            </a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdsmbLh0Vz1PaEJSOmW269PqxBULlvkl0XVKJYozsHDZTcPpw/viewform?usp=sharing" class="link-card" target="_blank">
+                <div class="icon-box"><i class="fa-solid fa-brain"></i></div>
+                <div class="link-name">Register Mental</div>
+            </a>
+        </div>
+    </div>
+
+    <!-- D. ALLIED HEALTH -->
+    <div class="category-group" data-category="allied">
+        <div class="category-title"><i class="fa-solid fa-hands-holding-child"></i> D. ALLIED HEALTH</div>
+        <div class="grid">
+            <a href="https://docs.google.com/spreadsheets/d/1c4nEbHu-h7xgm0f2Bl4DoU895PtOTG_AGDCYpzSF-Gs/edit?usp=sharing" class="link-card" target="_blank">
+                <div class="icon-box"><i class="fa-solid fa-comments"></i></div>
+                <div class="link-name">TCA Counsellor 2026</div>
+            </a>
+            <a href="https://docs.google.com/spreadsheets/d/1lkpVw1E-xrunr3c_xMV596pMX4TApX1QA4dHY_RzzcE/edit?usp=sharing" class="link-card" target="_blank">
+                <div class="icon-box"><i class="fa-solid fa-hand-holding-heart"></i></div>
+                <div class="link-name">TCA Social Welfare</div>
+            </a>
+            <a href="https://wa.me/601159827258?text=I%20want%20to%20make%20a%20Physio%20appointment" class="link-card whatsapp-btn" target="_blank">
+                <div class="icon-box"><i class="fa-brands fa-whatsapp"></i></div>
+                <div class="link-name">
+                    TCA Physio KKBI
+                    <div style="font-size: 0.75rem; color: #15803d; font-weight: normal;">WhatsApp Referral</div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+<footer style="text-align: center; color: var(--text-sub); font-size: 0.8rem; margin-top: 20px; padding-bottom: 30px;">
+    &copy; 2026 Portal TCA KKGP/KKPM
+</footer>
+
+<script>
+    function filterLinks() {
+        const input = document.getElementById('searchInput');
+        const filter = input.value.toLowerCase();
+        const cards = document.getElementsByClassName('link-card');
+        const categories = document.getElementsByClassName('category-group');
+        let totalVisible = 0;
+
+        // Loop through all link cards
+        for (let i = 0; i < cards.length; i++) {
+            const name = cards[i].innerText.toLowerCase();
+            if (name.indexOf(filter) > -1) {
+                cards[i].style.display = "";
+                totalVisible++;
+            } else {
+                cards[i].style.display = "none";
+            }
+        }
+
+        // Hide empty categories
+        for (let j = 0; j < categories.length; j++) {
+            const visibleInCat = categories[j].querySelectorAll('.link-card[style=""]').length;
+            categories[j].style.display = visibleInCat > 0 ? "block" : "none";
+        }
+
+        // Show empty state if nothing found
+        document.getElementById('no-results').style.display = (totalVisible === 0 && filter !== "") ? "block" : "none";
+    }
+</script>
+
+</body>
+</html>
