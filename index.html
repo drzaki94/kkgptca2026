@@ -213,6 +213,10 @@
                 <div class="icon-box"><i class="fa-solid fa-apple-whole"></i></div>
                 <div class="link-name">TCA Dietician (GDM Only)</div>
             </a>
+            <a href="https://docs.google.com/spreadsheets/d/18ZnhD-dbDgkMoH2XEjKFltQRHDCEwvyBXrJDLVUJ0Hw/edit?usp=drivesdk" class="link-card" target="_blank">
+                <div class="icon-box"><i class="fa-solid fa-user-doctor"></i></div>
+                <div class="link-name">TCA Visiting O&G 2026</div>
+            </a>
             <a href="https://docs.google.com/spreadsheets/d/1vHl6i1_GbE-SQ86ap-As7jq0u7H37WUDA5hK5s28A3A/edit?usp=sharing" class="link-card" target="_blank">
                 <div class="icon-box"><i class="fa-solid fa-user-md"></i></div>
                 <div class="link-name">TCA MO KKPM (MCH) 2026</div>
@@ -305,27 +309,34 @@
 <script>
     function filterLinks() {
         const input = document.getElementById('searchInput');
-        const filter = input.value.toLowerCase();
+        const filter = input.value.toLowerCase().trim();
         const cards = document.getElementsByClassName('link-card');
         const categories = document.getElementsByClassName('category-group');
         let totalVisible = 0;
 
+        // Loop through all link cards across all sections
         for (let i = 0; i < cards.length; i++) {
-            const name = cards[i].innerText.toLowerCase();
-            if (name.indexOf(filter) > -1) {
-                cards[i].style.display = "";
+            const card = cards[i];
+            const name = card.innerText.toLowerCase();
+            
+            if (name.includes(filter)) {
+                card.style.display = "flex"; // Ensure it shows as flex for styling
                 totalVisible++;
             } else {
-                cards[i].style.display = "none";
+                card.style.display = "none";
             }
         }
 
+        // Hide or show categories based on whether they contain visible links
         for (let j = 0; j < categories.length; j++) {
-            const visibleInCat = categories[j].querySelectorAll('.link-card[style=""]').length;
-            categories[j].style.display = visibleInCat > 0 ? "block" : "none";
+            const category = categories[j];
+            const visibleInCat = category.querySelectorAll('.link-card:not([style*="display: none"])').length;
+            category.style.display = (visibleInCat > 0) ? "block" : "none";
         }
 
-        document.getElementById('no-results').style.display = (totalVisible === 0 && filter !== "") ? "block" : "none";
+        // Show empty state if nothing found
+        const noResults = document.getElementById('no-results');
+        noResults.style.display = (totalVisible === 0 && filter !== "") ? "block" : "none";
     }
 
     if ('serviceWorker' in navigator) {
