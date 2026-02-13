@@ -14,12 +14,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #1e293b;
-            --accent-color: #3b82f6;
+            --primary-dark: #0f172a;
             --bg-color: #f8fafc;
             --card-bg: #ffffff;
             --text-main: #0f172a;
             --text-sub: #64748b;
+            
+            /* Section Specific Colors */
+            --mch-color: #3b82f6;      /* Blue */
+            --ncd-color: #10b981;      /* Emerald */
+            --special-color: #6366f1;  /* Indigo */
+            --allied-color: #f59e0b;   /* Amber */
         }
 
         body {
@@ -29,30 +34,38 @@
             padding: 0;
             color: var(--text-main);
             line-height: 1.5;
+            -webkit-tap-highlight-color: transparent;
         }
 
         .header-section {
             background: linear-gradient(135deg, #0f172a, #1e293b);
             color: white;
-            padding: 30px 20px;
+            padding: 40px 20px 60px 20px;
             text-align: center;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
 
         .header-section h1 {
             margin: 0;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
+            font-weight: 800;
             letter-spacing: -0.025em;
             text-transform: uppercase;
+        }
+
+        .header-section p {
+            margin-top: 8px;
+            opacity: 0.8;
+            font-size: 0.9rem;
         }
 
         /* Search Bar Styles */
         .search-container {
             max-width: 600px;
-            margin: -25px auto 30px auto;
+            margin: -30px auto 30px auto;
             padding: 0 20px;
             position: sticky;
-            top: 10px;
+            top: 15px;
             z-index: 100;
         }
 
@@ -64,93 +77,118 @@
 
         .search-input {
             width: 100%;
-            padding: 15px 20px 15px 45px;
-            border-radius: 12px;
-            border: none;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            padding: 18px 20px 18px 50px;
+            border-radius: 16px;
+            border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
             font-size: 1rem;
             outline: none;
-            transition: ring 0.2s;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .search-input:focus {
-            ring: 2px solid var(--accent-color);
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+            box-shadow: 0 20px 25px -5px rgba(59, 130, 246, 0.2);
+            transform: scale(1.01);
+            border-color: var(--mch-color);
         }
 
         .search-icon {
             position: absolute;
-            left: 15px;
+            left: 18px;
+            font-size: 1.2rem;
             color: var(--text-sub);
+            transition: color 0.3s;
+        }
+
+        .search-input:focus + .search-icon {
+            color: var(--mch-color);
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 0 20px 50px 20px;
         }
 
         .category-group {
-            margin-bottom: 35px;
+            margin-bottom: 40px;
+            transition: opacity 0.3s;
         }
 
         .category-title {
             font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 15px;
+            font-weight: 800;
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
-            color: var(--primary-color);
-            border-bottom: 2px solid #e2e8f0;
-            padding-bottom: 8px;
+            padding-bottom: 10px;
+            letter-spacing: 0.025em;
         }
 
         .category-title i {
-            margin-right: 10px;
-            color: var(--accent-color);
+            margin-right: 12px;
+            font-size: 1.3rem;
         }
+
+        /* Category Color Specifics */
+        .mch-theme .category-title { color: var(--mch-color); border-bottom: 3px solid #dbeafe; }
+        .ncd-theme .category-title { color: var(--ncd-color); border-bottom: 3px solid #d1fae5; }
+        .special-theme .category-title { color: var(--special-color); border-bottom: 3px solid #e0e7ff; }
+        .allied-theme .category-title { color: var(--allied-color); border-bottom: 3px solid #fef3c7; }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 12px;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 16px;
         }
 
         .link-card {
             background: var(--card-bg);
             padding: 16px;
-            border-radius: 12px;
+            border-radius: 14px;
             text-decoration: none;
             color: inherit;
             display: flex;
             align-items: center;
-            transition: transform 0.2s, box-shadow 0.2s;
-            border: 1px solid #e2e8f0;
+            transition: all 0.2s ease;
+            border: 1px solid #f1f5f9;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
         }
 
         .link-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            border-color: var(--accent-color);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
         }
 
+        /* Dynamic Border and Icons based on theme */
+        .mch-theme .link-card:hover { border-color: var(--mch-color); }
+        .ncd-theme .link-card:hover { border-color: var(--ncd-color); }
+        .special-theme .link-card:hover { border-color: var(--special-color); }
+        .allied-theme .link-card:hover { border-color: var(--allied-color); }
+
         .icon-box {
-            width: 44px;
-            height: 44px;
-            background-color: #eff6ff;
-            border-radius: 10px;
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-right: 16px;
-            font-size: 1.2rem;
-            color: var(--accent-color);
+            font-size: 1.4rem;
             flex-shrink: 0;
+            transition: transform 0.2s;
         }
+
+        .link-card:hover .icon-box { transform: scale(1.1); }
+
+        .mch-theme .icon-box { background-color: #eff6ff; color: var(--mch-color); }
+        .ncd-theme .icon-box { background-color: #ecfdf5; color: var(--ncd-color); }
+        .special-theme .icon-box { background-color: #eef2ff; color: var(--special-color); }
+        .allied-theme .icon-box { background-color: #fffbeb; color: var(--allied-color); }
 
         .link-name {
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 1rem;
             color: var(--text-main);
         }
 
@@ -166,15 +204,17 @@
         /* Responsive */
         @media (max-width: 640px) {
             .grid { grid-template-columns: 1fr; }
-            .header-section h1 { font-size: 1.2rem; }
+            .header-section h1 { font-size: 1.3rem; }
+            .search-container { margin-top: -35px; }
+            .search-input { padding: 15px 15px 15px 45px; }
         }
 
-        /* Empty state for search */
         #no-results {
             display: none;
             text-align: center;
-            padding: 40px;
+            padding: 60px 20px;
             color: var(--text-sub);
+            font-size: 1.1rem;
         }
     </style>
 </head>
@@ -182,19 +222,24 @@
 
 <div class="header-section">
     <h1>KKGP & KKPM 2026 TCA LINKS</h1>
+    <p>Directory of appointments and health services</p>
 </div>
 
 <div class="search-container">
     <div class="search-wrapper">
+        <input type="text" id="searchInput" class="search-input" placeholder="Search clinic, link, or category..." onkeyup="filterLinks()">
         <i class="fa-solid fa-magnifying-glass search-icon"></i>
-        <input type="text" id="searchInput" class="search-input" placeholder="Search for a clinic or link..." onkeyup="filterLinks()">
     </div>
 </div>
 
 <div class="container">
-    <div id="no-results">No links found matching your search.</div>
+    <div id="no-results">
+        <i class="fa-solid fa-face-frown" style="font-size: 3rem; display: block; margin-bottom: 15px; opacity: 0.5;"></i>
+        No links found matching your search.
+    </div>
 
-    <div class="category-group" data-category="mch">
+    <!-- Category A: MCH (Blue Theme) -->
+    <div class="category-group mch-theme" data-category="mch">
         <div class="category-title"><i class="fa-solid fa-baby-carriage"></i> A. Maternal and Child Health (MCH)</div>
         <div class="grid">
             <a href="https://jaundicio-62tv8.ondigitalocean.app" class="link-card" target="_blank">
@@ -225,10 +270,16 @@
                 <div class="icon-box"><i class="fa-solid fa-user-md"></i></div>
                 <div class="link-name">TCA MO KD Kg Pulai</div>
             </a>
+            <!-- NEW LINK: TCA MO MCH SILC -->
+            <a href="https://drive.google.com/drive/folders/1rIe7pOvkQIQNrDxdZMPss95CUR6_3lbc" class="link-card" target="_blank">
+                <div class="icon-box"><i class="fa-solid fa-folder-tree"></i></div>
+                <div class="link-name">TCA MO MCH SILC</div>
+            </a>
         </div>
     </div>
 
-    <div class="category-group" data-category="ncd">
+    <!-- Category B: NCD (Emerald Theme) -->
+    <div class="category-group ncd-theme" data-category="ncd">
         <div class="category-title"><i class="fa-solid fa-heart-pulse"></i> B. NCD</div>
         <div class="grid">
             <a href="https://docs.google.com/spreadsheets/d/1YpzT9UHLhNqxK4KgWbh4Pf3mEega-auCM43V7eI4lvI/edit?gid=1618380588#gid=1618380588" class="link-card" target="_blank">
@@ -247,10 +298,16 @@
                 <div class="icon-box"><i class="fa-solid fa-notes-medical"></i></div>
                 <div class="link-name">NCD & PEKA B40 KKPM 2026</div>
             </a>
+            <!-- NEW LINK: My Ramadan QR -->
+            <a href="https://myramadan.web.app/" class="link-card" target="_blank">
+                <div class="icon-box"><i class="fa-solid fa-moon"></i></div>
+                <div class="link-name">My Ramadan QR</div>
+            </a>
         </div>
     </div>
 
-    <div class="category-group" data-category="special">
+    <!-- Category C: SPECIAL CLINIC (Indigo Theme) -->
+    <div class="category-group special-theme" data-category="special">
         <div class="category-title"><i class="fa-solid fa-star-of-life"></i> C. SPECIAL CLINIC</div>
         <div class="grid">
             <a href="https://docs.google.com/spreadsheets/d/1DhxGkDiXKUFwPlm24pKfrOI-NJNtSoGhGiDB9HmgkB0/edit?usp=drivesdk" class="link-card" target="_blank">
@@ -280,7 +337,8 @@
         </div>
     </div>
 
-    <div class="category-group" data-category="allied">
+    <!-- Category D: ALLIED HEALTH (Amber Theme) -->
+    <div class="category-group allied-theme" data-category="allied">
         <div class="category-title"><i class="fa-solid fa-hands-holding-child"></i> D. ALLIED HEALTH</div>
         <div class="grid">
             <a href="https://docs.google.com/spreadsheets/d/1c4nEbHu-h7xgm0f2Bl4DoU895PtOTG_AGDCYpzSF-Gs/edit?usp=sharing" class="link-card" target="_blank">
@@ -290,6 +348,11 @@
             <a href="https://docs.google.com/spreadsheets/d/1lkpVw1E-xrunr3c_xMV596pMX4TApX1QA4dHY_RzzcE/edit?usp=sharing" class="link-card" target="_blank">
                 <div class="icon-box"><i class="fa-solid fa-hand-holding-heart"></i></div>
                 <div class="link-name">TCA Social Welfare</div>
+            </a>
+            <!-- NEW LINK: JADUAL VISITING KKGP/SILC -->
+            <a href="https://docs.google.com/spreadsheets/d/1XOC46tGjJxuUk7LIz4C_TeJAcIV9T4miV5kpJdgi81Q/edit?gid=971312240#gid=971312240" class="link-card" target="_blank">
+                <div class="icon-box"><i class="fa-solid fa-calendar-days"></i></div>
+                <div class="link-name">JADUAL VISITING KKGP/SILC</div>
             </a>
             <a href="https://wa.me/601159827258?text=I%20want%20to%20make%20a%20Physio%20appointment" class="link-card whatsapp-btn" target="_blank">
                 <div class="icon-box"><i class="fa-brands fa-whatsapp"></i></div>
@@ -302,8 +365,9 @@
     </div>
 </div>
 
-<footer style="text-align: center; color: var(--text-sub); font-size: 0.8rem; margin-top: 20px; padding-bottom: 30px;">
-    &copy; 2026 Portal TCA KKGP/KKPM
+<footer style="text-align: center; color: var(--text-sub); font-size: 0.8rem; margin-top: 20px; padding-bottom: 40px;">
+    &copy; 2026 Portal TCA KKGP/KKPM<br>
+    Designed for healthcare professionals
 </footer>
 
 <script>
@@ -318,9 +382,11 @@
         for (let i = 0; i < cards.length; i++) {
             const card = cards[i];
             const name = card.innerText.toLowerCase();
+            // Also include category name in search for ease of access
+            const categoryText = card.closest('.category-group').querySelector('.category-title').innerText.toLowerCase();
             
-            if (name.includes(filter)) {
-                card.style.display = "flex"; // Ensure it shows as flex for styling
+            if (name.includes(filter) || categoryText.includes(filter)) {
+                card.style.display = "flex";
                 totalVisible++;
             } else {
                 card.style.display = "none";
@@ -331,7 +397,14 @@
         for (let j = 0; j < categories.length; j++) {
             const category = categories[j];
             const visibleInCat = category.querySelectorAll('.link-card:not([style*="display: none"])').length;
-            category.style.display = (visibleInCat > 0) ? "block" : "none";
+            
+            if (visibleInCat > 0) {
+                category.style.display = "block";
+                category.style.opacity = "1";
+            } else {
+                category.style.display = "none";
+                category.style.opacity = "0";
+            }
         }
 
         // Show empty state if nothing found
