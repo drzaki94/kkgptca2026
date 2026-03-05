@@ -25,6 +25,7 @@
             --ncd-color: #10b981;      /* Emerald */
             --special-color: #6366f1;  /* Indigo */
             --allied-color: #f59e0b;   /* Amber */
+            --others-color: #ec4899;   /* Pink */
         }
 
         body {
@@ -135,6 +136,7 @@
         .ncd-theme .category-title { color: var(--ncd-color); border-bottom: 3px solid #d1fae5; }
         .special-theme .category-title { color: var(--special-color); border-bottom: 3px solid #e0e7ff; }
         .allied-theme .category-title { color: var(--allied-color); border-bottom: 3px solid #fef3c7; }
+        .others-theme .category-title { color: var(--others-color); border-bottom: 3px solid #fce7f3; }
 
         .grid {
             display: grid;
@@ -165,6 +167,7 @@
         .ncd-theme .link-card:hover { border-color: var(--ncd-color); }
         .special-theme .link-card:hover { border-color: var(--special-color); }
         .allied-theme .link-card:hover { border-color: var(--allied-color); }
+        .others-theme .link-card:hover { border-color: var(--others-color); }
 
         .icon-box {
             width: 48px;
@@ -185,6 +188,7 @@
         .ncd-theme .icon-box { background-color: #ecfdf5; color: var(--ncd-color); }
         .special-theme .icon-box { background-color: #eef2ff; color: var(--special-color); }
         .allied-theme .icon-box { background-color: #fffbeb; color: var(--allied-color); }
+        .others-theme .icon-box { background-color: #fdf2f8; color: var(--others-color); }
 
         .link-name {
             font-weight: 600;
@@ -238,7 +242,6 @@
         No links found matching your search.
     </div>
 
-    <!-- Category A: MCH (Blue Theme) -->
     <div class="category-group mch-theme" data-category="mch">
         <div class="category-title"><i class="fa-solid fa-baby-carriage"></i> A. Maternal and Child Health (MCH)</div>
         <div class="grid">
@@ -270,7 +273,6 @@
                 <div class="icon-box"><i class="fa-solid fa-user-md"></i></div>
                 <div class="link-name">TCA MO KD Kg Pulai</div>
             </a>
-            <!-- NEW LINK: TCA MO MCH SILC -->
             <a href="https://drive.google.com/drive/folders/1rIe7pOvkQIQNrDxdZMPss95CUR6_3lbc" class="link-card" target="_blank">
                 <div class="icon-box"><i class="fa-solid fa-folder-tree"></i></div>
                 <div class="link-name">TCA MO MCH SILC</div>
@@ -278,7 +280,6 @@
         </div>
     </div>
 
-    <!-- Category B: NCD (Emerald Theme) -->
     <div class="category-group ncd-theme" data-category="ncd">
         <div class="category-title"><i class="fa-solid fa-heart-pulse"></i> B. NCD</div>
         <div class="grid">
@@ -298,15 +299,17 @@
                 <div class="icon-box"><i class="fa-solid fa-notes-medical"></i></div>
                 <div class="link-name">NCD & PEKA B40 KKPM 2026</div>
             </a>
-            <!-- NEW LINK: My Ramadan QR -->
             <a href="https://myramadan.web.app/" class="link-card" target="_blank">
                 <div class="icon-box"><i class="fa-solid fa-moon"></i></div>
                 <div class="link-name">My Ramadan QR</div>
             </a>
+            <a href="https://docs.google.com/spreadsheets/d/15BytE5-X0pgMqu4oppuh4V0OSFNmisBmjYa721otdfo/edit?usp=sharing" class="link-card" target="_blank">
+                <div class="icon-box"><i class="fa-solid fa-phone"></i></div>
+                <div class="link-name">TCA TC Call</div>
+            </a>
         </div>
     </div>
 
-    <!-- Category C: SPECIAL CLINIC (Indigo Theme) -->
     <div class="category-group special-theme" data-category="special">
         <div class="category-title"><i class="fa-solid fa-star-of-life"></i> C. SPECIAL CLINIC</div>
         <div class="grid">
@@ -337,7 +340,6 @@
         </div>
     </div>
 
-    <!-- Category D: ALLIED HEALTH (Amber Theme) -->
     <div class="category-group allied-theme" data-category="allied">
         <div class="category-title"><i class="fa-solid fa-hands-holding-child"></i> D. ALLIED HEALTH</div>
         <div class="grid">
@@ -349,7 +351,6 @@
                 <div class="icon-box"><i class="fa-solid fa-hand-holding-heart"></i></div>
                 <div class="link-name">TCA Social Welfare</div>
             </a>
-            <!-- NEW LINK: JADUAL VISITING KKGP/SILC -->
             <a href="https://docs.google.com/spreadsheets/d/1XOC46tGjJxuUk7LIz4C_TeJAcIV9T4miV5kpJdgi81Q/edit?gid=971312240#gid=971312240" class="link-card" target="_blank">
                 <div class="icon-box"><i class="fa-solid fa-calendar-days"></i></div>
                 <div class="link-name">JADUAL VISITING KKGP/SILC</div>
@@ -363,6 +364,25 @@
             </a>
         </div>
     </div>
+
+    <div class="category-group others-theme" data-category="others">
+        <div class="category-title"><i class="fa-solid fa-layer-group"></i> E. OTHERS</div>
+        <div class="grid">
+            <a href="https://tinyurl.com/DrZClinicalToolkit" class="link-card" target="_blank">
+                <div class="icon-box"><i class="fa-solid fa-stethoscope"></i></div>
+                <div class="link-name">Clinical Toolkit</div>
+            </a>
+            <a href="https://drive.google.com/file/d/1CWWnbdJ7AC2tK2D3klPdbO5fYiSOtfx7/view?usp=sharing" class="link-card" target="_blank">
+                <div class="icon-box"><i class="fa-solid fa-qrcode"></i></div>
+                <div class="link-name">Mental Support Hub (QR Code)</div>
+            </a>
+            <a href="https://tinyurl.com/MentalSupportHub" class="link-card" target="_blank">
+                <div class="icon-box"><i class="fa-solid fa-globe"></i></div>
+                <div class="link-name">Mental Support Hub (Site)</div>
+            </a>
+        </div>
+    </div>
+
 </div>
 
 <footer style="text-align: center; color: var(--text-sub); font-size: 0.8rem; margin-top: 20px; padding-bottom: 40px;">
@@ -373,21 +393,24 @@
 <script>
     function filterLinks() {
         const input = document.getElementById('searchInput');
-        const filter = input.value.toLowerCase().trim();
+        const filterText = input.value.toLowerCase().trim();
+        const searchTerms = filterText.split(/\s+/); // Enhanced: Split search into multiple keywords
         const cards = document.getElementsByClassName('link-card');
         const categories = document.getElementsByClassName('category-group');
-        let totalVisible = 0;
+        let totalVisibleCards = 0;
 
         // Loop through all link cards across all sections
         for (let i = 0; i < cards.length; i++) {
             const card = cards[i];
             const name = card.innerText.toLowerCase();
-            // Also include category name in search for ease of access
             const categoryText = card.closest('.category-group').querySelector('.category-title').innerText.toLowerCase();
+            const combinedText = `${name} ${categoryText}`;
             
-            if (name.includes(filter) || categoryText.includes(filter)) {
+            // Enhanced: Ensure every word in the search query matches the combined text
+            const matchesAllTerms = searchTerms.every(term => combinedText.includes(term));
+            
+            if (matchesAllTerms || filterText === "") {
                 card.style.display = "flex";
-                totalVisible++;
             } else {
                 card.style.display = "none";
             }
@@ -396,7 +419,16 @@
         // Hide or show categories based on whether they contain visible links
         for (let j = 0; j < categories.length; j++) {
             const category = categories[j];
-            const visibleInCat = category.querySelectorAll('.link-card:not([style*="display: none"])').length;
+            const cardsInCat = category.getElementsByClassName('link-card');
+            let visibleInCat = 0;
+            
+            // Count how many cards are currently visible in this specific category
+            for(let k = 0; k < cardsInCat.length; k++) {
+                if(cardsInCat[k].style.display === "flex" || cardsInCat[k].style.display === "") {
+                    visibleInCat++;
+                    totalVisibleCards++;
+                }
+            }
             
             if (visibleInCat > 0) {
                 category.style.display = "block";
@@ -409,7 +441,7 @@
 
         // Show empty state if nothing found
         const noResults = document.getElementById('no-results');
-        noResults.style.display = (totalVisible === 0 && filter !== "") ? "block" : "none";
+        noResults.style.display = (totalVisibleCards === 0 && filterText !== "") ? "block" : "none";
     }
 
     if ('serviceWorker' in navigator) {
