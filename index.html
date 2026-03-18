@@ -196,15 +196,6 @@
             color: var(--text-main);
         }
 
-        .whatsapp-btn {
-            background-color: #f0fdf4 !important;
-            border-color: #bbf7d0;
-        }
-        .whatsapp-btn .icon-box {
-            background-color: #25D366;
-            color: white;
-        }
-
         /* Responsive */
         @media (max-width: 640px) {
             .grid { grid-template-columns: 1fr; }
@@ -231,7 +222,7 @@
 
 <div class="search-container">
     <div class="search-wrapper">
-        <input type="text" id="searchInput" class="search-input" placeholder="Search clinic, link, or category..." onkeyup="filterLinks()">
+        <input type="text" id="searchInput" class="search-input" placeholder="Search clinic, link, or category..." oninput="filterLinks()">
         <i class="fa-solid fa-magnifying-glass search-icon"></i>
     </div>
 </div>
@@ -355,19 +346,16 @@
                 <div class="icon-box"><i class="fa-solid fa-calendar-days"></i></div>
                 <div class="link-name">JADUAL VISITING KKGP/SILC</div>
             </a>
-            <a href="https://wa.me/601159827258?text=I%20want%20to%20make%20a%20Physio%20appointment" class="link-card whatsapp-btn" target="_blank">
-                <div class="icon-box"><i class="fa-brands fa-whatsapp"></i></div>
-                <div class="link-name">
-                    TCA Physio KKBI
-                    <div style="font-size: 0.75rem; color: #15803d; font-weight: normal;">WhatsApp Referral</div>
-                </div>
-            </a>
         </div>
     </div>
 
     <div class="category-group others-theme" data-category="others">
         <div class="category-title"><i class="fa-solid fa-layer-group"></i> E. OTHERS</div>
         <div class="grid">
+            <a href="https://docs.google.com/spreadsheets/d/1wFhAM4-KfGfS7AL00BSlQbVSyXM8VHhnKGZNxVesJz4/edit?usp=drivesdk" class="link-card" target="_blank">
+                <div class="icon-box"><i class="fa-solid fa-clipboard-user"></i></div>
+                <div class="link-name">Roster MO 2026</div>
+            </a>
             <a href="https://tinyurl.com/DrZClinicalToolkit" class="link-card" target="_blank">
                 <div class="icon-box"><i class="fa-solid fa-stethoscope"></i></div>
                 <div class="link-name">Clinical Toolkit</div>
@@ -394,37 +382,40 @@
     function filterLinks() {
         const input = document.getElementById('searchInput');
         const filterText = input.value.toLowerCase().trim();
-        const searchTerms = filterText.split(/\s+/); // Enhanced: Split search into multiple keywords
+        
+        // Return early and show everything if search is empty
+        if (!filterText) {
+            resetSearch();
+            return;
+        }
+
+        const searchTerms = filterText.split(/\s+/); 
         const cards = document.getElementsByClassName('link-card');
         const categories = document.getElementsByClassName('category-group');
         let totalVisibleCards = 0;
 
-        // Loop through all link cards across all sections
         for (let i = 0; i < cards.length; i++) {
             const card = cards[i];
             const name = card.innerText.toLowerCase();
             const categoryText = card.closest('.category-group').querySelector('.category-title').innerText.toLowerCase();
             const combinedText = `${name} ${categoryText}`;
             
-            // Enhanced: Ensure every word in the search query matches the combined text
             const matchesAllTerms = searchTerms.every(term => combinedText.includes(term));
             
-            if (matchesAllTerms || filterText === "") {
+            if (matchesAllTerms) {
                 card.style.display = "flex";
             } else {
                 card.style.display = "none";
             }
         }
 
-        // Hide or show categories based on whether they contain visible links
         for (let j = 0; j < categories.length; j++) {
             const category = categories[j];
             const cardsInCat = category.getElementsByClassName('link-card');
             let visibleInCat = 0;
             
-            // Count how many cards are currently visible in this specific category
             for(let k = 0; k < cardsInCat.length; k++) {
-                if(cardsInCat[k].style.display === "flex" || cardsInCat[k].style.display === "") {
+                if(cardsInCat[k].style.display === "flex") {
                     visibleInCat++;
                     totalVisibleCards++;
                 }
@@ -439,9 +430,23 @@
             }
         }
 
-        // Show empty state if nothing found
         const noResults = document.getElementById('no-results');
-        noResults.style.display = (totalVisibleCards === 0 && filterText !== "") ? "block" : "none";
+        noResults.style.display = (totalVisibleCards === 0) ? "block" : "none";
+    }
+
+    // Helper to quickly reset all styles when search is cleared
+    function resetSearch() {
+        const cards = document.getElementsByClassName('link-card');
+        const categories = document.getElementsByClassName('category-group');
+        
+        for (let i = 0; i < cards.length; i++) {
+            cards[i].style.display = "flex";
+        }
+        for (let j = 0; j < categories.length; j++) {
+            categories[j].style.display = "block";
+            categories[j].style.opacity = "1";
+        }
+        document.getElementById('no-results').style.display = "none";
     }
 
     if ('serviceWorker' in navigator) {
