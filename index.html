@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KKGP & KKPM 2026 TCA LINKS</title>
+    
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0f172a">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/3063/3063176.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-dark: #0f172a;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-sub: #64748b;
+            
+            /* Section Specific Colors */
+            --mch-color: #3b82f6;      /* Blue */
+            --ncd-color: #10b981;      /* Emerald */
+            --special-color: #6366f1;  /* Indigo */
+            --allied-color: #f59e0b;   /* Amber */
+            --others-color: #ec4899;   /* Pink */
+            --sqs-color: #8b5cf6;      /* Violet */
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+            color: var(--text-main);
+            line-height: 1.5;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .header-section {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: white;
+            padding: 40px 20px 60px 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-section h1 {
+            margin: 0;
+            font-size: 1.6rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            text-transform: uppercase;
+        }
+
+        .header-section p {
+            margin-top: 8px;
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        /* Search Bar Styles */
+        .search-container {
+            max-width: 600px;
+            margin: -30px auto 30px auto;
+            padding: 0 20px;
+            position: sticky;
+            top: 15px;
+            z-index: 100;
+        }
+
+        .search-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 18px 20px 18px 50px;
+            border-radius: 16px;
+            border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .search-input:focus {
+            box-shadow: 0 20px 25px -5px rgba(59, 130, 246, 0.2);
+            transform: scale(1.01);
+            border-color: var(--mch-color);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 18px;
+            font-size: 1.2rem;
+            color: var(--text-sub);
+            transition: color 0.3s;
+        }
+
+        .search-input:focus + .search-icon {
+            color: var(--mch-color);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px 50px 20px;
+        }
+
+        .category-group {
+            margin-bottom: 40px;
+            transition: opacity 0.3s;
+        }
+
+        .category-title {
+            font-size: 1.1rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            padding-bottom: 10px;
+            letter-spacing: 0.025em;
+        }
+
+        .category-title i {
+            margin-right: 12px;
+            font-size: 1.3rem;
+        }
+
+        /* Category Color Specifics */
+        .mch-theme .category-title { color: var(--mch-color); border-bottom: 3px solid #dbeafe; }
+        .ncd-theme .category-title { color: var(--ncd-color); border-bottom: 3px solid #d1fae5; }
+        .special-theme .category-title { color: var(--special-color); border-bottom: 3px solid #e0e7ff; }
+        .allied-theme .category-title { color: var(--allied-color); border-bottom: 3px solid #fef3c7; }
+        .others-theme .category-title { color: var(--others-color); border-bottom: 3px solid #fce7f3; }
+        .sqs-theme .category-title { color: var(--sqs-color); border-bottom: 3px solid #ede9fe; }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 16px;
+        }
+
+        .link-card {
+            background: var(--card-bg);
+            padding: 16px;
+            border-radius: 14px;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            align-items: center;
+            transition: all 0.2s ease;
+            border: 1px solid #f1f5f9;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .link-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Dynamic Border and Icons based on theme */
+        .mch-theme .link-card:hover { border-color: var(--mch-color); }
+        .ncd-theme .link-card:hover { border-color: var(--ncd-color); }
+        .special-theme .link-card:hover { border-color: var(--special-color); }
+        .allied-theme .link-card:hover { border-color: var(--allied-color); }
+        .others-theme .link-card:hover { border-color: var(--others-color); }
+        .sqs-theme .link-card:hover { border-color: var(--sqs-color); }
+
+        .icon-box {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 16px;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+            transition: transform 0.2s;
+        }
+
+        .link-card:hover .icon-box { transform: scale(1.1); }
+
+        .mch-theme .icon-box { background-color: #eff6ff; color: var(--mch-color); }
+        .ncd-theme .icon-box { background-color: #ecfdf5; color: var(--ncd-color); }
+        .special-theme .icon-box { background-color: #eef2ff; color: var(--special-color); }
+        .allied-theme .icon-box { background-color: #fffbeb; color: var(--allied-color); }
+        .others-theme .icon-box { background-color: #fdf2f8; color: var(--others-color); }
+        .sqs-theme .icon-box { background-color: #f5f3ff; color: var(--sqs-color); }
+
+        .link-name {
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-main);
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .grid { grid-template-columns: 1fr; }
+            .header-section h1 { font-size: 1.3rem; }
+            .search-container { margin-top: -35px; }
+            .search-input { padding: 15px 15px 15px 45px; }
+        }
+
+        #no-results {
+            display: none;
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-sub);
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header-section">
+    <h1>KKGP & KKPM 2026 TCA LINKS</h1>
+    <p>Directory of appointments and health services</p>
+</div>
+
+<div class="search-container">
+    <div class="search-wrapper">
+        <input type="text" id="searchInput" class="search-input" placeholder="Search clinic, link, or category..." oninput="filterLinks()">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+    </div>
+</div>
+
+<div class="container">
+    <div id="no-results">
+        <i class="fa-solid fa-face-frown" style="font-size: 3rem; display: block; margin-bottom: 15px; opacity: 0.5;"></i>
+        No links found matching your search.
+    </div>
+
+    <div class="category-group mch-theme" data-category="mch">
+        <div class="category-title"><i class="fa-solid fa-baby-carriage"></i> A. Maternal and Child Health (MCH)</div>
+        <div class="grid">
+            <a href="https://jaundicio-62tv8.ondigitalocean.app" class="link-card" target="_blank">
+                <div class="icon-box"><i class="fa-solid fa-baby"></i></div>
+                <div class="link-name">Jaundice App</div>
+            </a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeSGRdsKrbQuAMcQfTeopto-pVm1YGRXkFygNd48AKGCLY9iQ/viewform" class="link-card" target="_blank">
+                <div class="icon-box"><i class="fa-solid fa-person-pregnant"></i></div>
+                <div class="link-name">PSP (Anemia in Pregnancy)</div>
+            </a>
+            <a href="https://drive.google.com/file/d/1wqLeLIHr3hxgmolRRsyrcHrdVStQFLTB/view?usp=sharing" class="link-card" target="_blank">
+                <div class="icon-box"><i class="fa-solid fa-qrcode"></i></div>
+                <div class="link-name">PSP (Anemia in Pregnancy) QR Code</div>
+            </a>
+            <a href="https://docs.google.com/spreadsheets/u/3/d/1-CaEuuDOG7DsH_qR8LlLRgqR4aq8YBkK2d0PnMkI2Vo/htmlview#" class="link-card" target="_blank">
+                <div class="icon-box"><i class="fa-solid fa-apple-whole"></i></div>
+                <div class="link-name">TCA Dietician (GDM Only)</div>
+            </a>
+            <a href="https://docs.google.com/spreadsheets/d/18ZnhD-dbDgkMoH2XEjKFltQRHDCEwvyBXrJDLVUJ0Hw/edit?usp=drivesdk" class="link-card" target="_blank">
+                <div class="icon-box"><i class="fa-solid fa-user-doctor"></i></div>
+                <div class="link-name">TCA Visiting O&G 2026</div>
+            </a>
+            <a href="https://docs.google.com/spreadsheets/d/1vHl6i1_GbE-SQ86ap-As7jq0u7H37WUDA5hK5s28A3A/edit?usp=sharing" class="link-card" target="_blank">
+                <div class="icon-box"><i class="fa-solid fa-user-md"></i></div>
+                <div class="link-name">TCA MO KKPM (MCH) 2026</div>
+            </a>
+            <a href="https://docs.google.com/spreadsheets/d/1DDafkmKhhsHKEFiXiBrufodKHUMkJE790YYmwxnXRWw/edit?usp=sharing" class="link-card" target="_blank">
+                <div class="icon-box"><i class="fa-solid fa-user-md"></i></div>
+                <div class="link-name">TCA MO KD Kg Pulai</div>
+            </a>
+            <a href="https://drive.google.com/drive/folders/1rIe7pOvkQIQNrDxdZMPss95CUR6_3lbc" class="link-card" target="_blank">
+                <div class="icon-box"><i class="fa-solid fa-folder-tree"></i></div>
+                <div class="link-name">TCA MO MCH SILC</div>
+            </a>
+            <a href="https://drive.google.com/drive/folders/1_4hjAurCqFNKuoNwJl0ZDalrzKFdMkPQ?usp=sharing" class="link-card" target="_blank">
+                <div class="icon-box"><i class="fa-solid fa-syringe"></i></div>
+                <div class="link-name">Blood Taking MCH</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="category-group ncd-theme" data-category="ncd">
+        <div class="category-title"><i class="fa-solid fa-heart-pulse"></i> B. NCD</div>
+        <div class="grid">
+            <a href="https://docs.google.com/spreadsheets/d/1YpzT9UHLhNqxK4KgWbh4Pf3mEega-auCM43V7eI4lvI/edit?gid=1618380588#gid=1618380588" class="link-card" target="_blank">
+                <div class="icon-box"><i class="fa-solid fa-calendar-check"></i></div>
+                <div class="link-name">PSP (General Appointment)</div>
+            </a>
+            <a href="https://docs.google.com/spreadsheets/d/1RGhK7EoLNtBJI3LidY-LgXD_oNUlPPnz6C5HGjjFB6Q/edit?usp=sharing" class="link-card" target="_blank">
+                <div class="icon-box"><i class="fa-solid fa-utensils"></i></div>
+                <div class="link-name">TCA Dietitian (NCD)</div>
+            </a>
+            <a href="https://docs.google.com/spreadsheets/d/1tJzZ7D0CL2wQUmlZt_S5DZo-LKUjKqj57d1BQ2yP0fw/edit?usp=sharing" class="link-card" target="_blank">
+                <div class="icon-box"><i class="fa-solid fa-chalkboard-user"></i></div>
+                <div class="link-name">TCA KELAS DM (HBA1C 8.0-9.9%)</div>
+            </a>
+            <a href="https://docs.google.com/spreadsheets/d/1Zvhc1__f0BP5AKgXvz4wZB2IDLDAHLFsqSlfQ6pI8Js/edit?usp=sharing" class="link-card" target="_blank">
+                <div class="icon-box"><i class="fa-solid fa-notes-medical"></i></div>
+                <div class="link-name">NCD & PEKA B40 KKPM 2026</div>
+            </a>
+            <a href="https://myramadan.web.app/" class="link-card" target="_blank">
+                <div class="icon-box"><i class="fa-solid fa-moon"></i></div>
+                <div class="link-name">My Ramadan QR</div>
+            </a>
+            <a href="https://docs.google.com/spreadsheets/d/15BytE5-X0pgMqu4oppuh4V0OSFNmisBmjYa721otdfo/edit?usp=sharing" class="link-card" target="_blank">
+                <div class="icon-box"><i class="fa-solid fa-phone"></i></div>
+                <div class="link-name">TCA TC Call</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="category-group special-theme" data-category="special">
+        <div class="category-title"><i class="fa-solid fa-star-of-life"></i> C. SPECIAL CLINIC</div>
+        <div class="grid">
+            <a href="https://docs.google.com/spreadsheets/d/1DhxGkDiXKUFwPlm24pKfrOI-NJNtSoGhGiDB9HmgkB0/edit?usp=drivesdk" class="link-card" target="_blank">
+                <div class="icon-box"><i class="fa-solid fa-ribbon"></i></div>
+                <div class="link-name">TCA HIV/STD (Camelia) 2026</div>
+            </a>
+            <a href="https://docs.google.com/spreadsheets/d/1slTkmH4ywHrH8ZYOVHRACqrUoYjqFrm_P9eLiGB9tTQ/edit?gid=0#gid=0" class="link-card" target="_blank">
+                <div class="icon-box"><i class="fa-solid fa-hospital-user"></i></div>
+                <div class="link-name">TCA KBM 2026</div>
+            </a>
+            <a href="https://tinyurl.com/KBMToolkit" class="link-card" target="_blank">
+                <div class="icon-box"><i class="fa-solid fa-toolbox"></i></div>
+                <div class="link-name">KBM Toolkit</div>
+            </a>
+            <a href="https://docs.google.com/spreadsheets/d/1ae7nLfGFJgsglGiucra1BTHvYE3To3u5fdGFDDWRNBY/edit?usp=drivesdk" class="link-card" target="_blank">
+                <div class="icon-box"><i class="fa-solid fa-lungs"></i></div>
+                <div class="link-name">TCA ASTHMA CLINIC</div>
+            </a>
+            <a href="https://docs.google.com/spreadsheets/d/16PwJRl8wzPuRtiemFyu_5msP8IvZBk1hiGwvlVdc9T8/edit?usp=drivesdk" class="link-card" target="_blank">
+                <div class="icon-box"><i class="fa-solid fa-house-medical"></i></div>
+                <div class="link-name">TCA DAHLIA CLINIC</div>
+            </a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdsmbLh0Vz1PaEJSOmW269PqxBULlvkl0XVKJYozsHDZTcPpw/viewform?usp=sharing" class="link-card" target="_blank">
+                <div class="icon-box"><i class="fa-solid fa-brain"></i></div>
+                <div class="link-name">Register Mental</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="category-group allied-theme" data-category="allied">
+        <div class="category-title"><i class="fa-solid fa-hands-holding-child"></i> D. ALLIED HEALTH</div>
+        <div class="grid">
+            <a href="https://docs.google.com/spreadsheets/d/1c4nEbHu-h7xgm0f2Bl4DoU895PtOTG_AGDCYpzSF-Gs/edit?usp=sharing" class="link-card" target="_blank">
+                <div class="icon-box"><i class="fa-solid fa-comments"></i></div>
+                <div class="link-name">TCA Counsellor 2026</div>
+            </a>
+            <a href="https://docs.google.com/spreadsheets/d/1lkpVw1E-xrunr3c_xMV596pMX4TApX1QA4dHY_RzzcE/edit?usp=sharing" class="link-card" target="_blank">
+                <div class="icon-box"><i class="fa-solid fa-hand-holding-heart"></i></div>
+                <div class="link-name">TCA Social Welfare</div>
+            </a>
+            <a href="https://docs.google.com/spreadsheets/d/1XOC46tGjJxuUk7LIz4C_TeJAcIV9T4miV5kpJdgi81Q/edit?gid=971312240#gid=971312240" class="link-card" target="_blank">
+                <div class="icon-box"><i class="fa-solid fa-calendar-days"></i></div>
+                <div class="link-name">JADUAL VISITING KKGP/SILC</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="category-group others-theme" data-category="others">
+        <div class="category-title"><i class="fa-solid fa-layer-group"></i> E. OTHERS</div>
+        <div class="grid">
+            <a href="https://docs.google.com/spreadsheets/d/1wFhAM4-KfGfS7AL00BSlQbVSyXM8VHhnKGZNxVesJz4/edit?usp=drivesdk" class="link-card" target="_blank">
+                <div class="icon-box"><i class="fa-solid fa-clipboard-user"></i></div>
+                <div class="link-name">Roster MO 2026</div>
+            </a>
+            <a href="https://tinyurl.com/DrZClinicalToolkit" class="link-card" target="_blank">
+                <div class="icon-box"><i class="fa-solid fa-stethoscope"></i></div>
+                <div class="link-name">Clinical Toolkit</div>
+            </a>
+            <a href="https://drive.google.com/file/d/1CWWnbdJ7AC2tK2D3klPdbO5fYiSOtfx7/view?usp=sharing" class="link-card" target="_blank">
+                <div class="icon-box"><i class="fa-solid fa-qrcode"></i></div>
+                <div class="link-name">Mental Support Hub (QR Code)</div>
+            </a>
+            <a href="https://tinyurl.com/MentalSupportHub" class="link-card" target="_blank">
+                <div class="icon-box"><i class="fa-solid fa-globe"></i></div>
+                <div class="link-name">Mental Support Hub (Site)</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="category-group sqs-theme" data-category="sqs">
+        <div class="category-title"><i class="fa-solid fa-server"></i> F. SQS System HSAJB</div>
+        <div class="grid">
+            <a href="https://drive.google.com/file/d/1YUtzVjQNu6l9fa736nT0hY8fLb6c7wIV/view?usp=sharing" class="link-card" target="_blank">
+                <div class="icon-box"><i class="fa-solid fa-qrcode"></i></div>
+                <div class="link-name">QR Code</div>
+            </a>
+            <a href="https://drive.google.com/file/d/1gUici4LiuSi2oX7ihvLQBxESdM7348yQ/view?usp=sharing" class="link-card" target="_blank">
+                <div class="icon-box"><i class="fa-solid fa-sitemap"></i></div>
+                <div class="link-name">Flowchart</div>
+            </a>
+        </div>
+    </div>
+
+</div>
+
+<footer style="text-align: center; color: var(--text-sub); font-size: 0.8rem; margin-top: 20px; padding-bottom: 40px;">
+    &copy; 2026 Portal TCA KKGP/KKPM<br>
+    Designed for healthcare professionals
+</footer>
+
+<script>
+    function filterLinks() {
+        const input = document.getElementById('searchInput');
+        const filterText = input.value.toLowerCase().trim();
+        
+        // Return early and show everything if search is empty
+        if (!filterText) {
+            resetSearch();
+            return;
+        }
+
+        const searchTerms = filterText.split(/\s+/); 
+        const cards = document.getElementsByClassName('link-card');
+        const categories = document.getElementsByClassName('category-group');
+        let totalVisibleCards = 0;
+
+        for (let i = 0; i < cards.length; i++) {
+            const card = cards[i];
+            const name = card.innerText.toLowerCase();
+            const categoryText = card.closest('.category-group').querySelector('.category-title').innerText.toLowerCase();
+            const combinedText = `${name} ${categoryText}`;
+            
+            const matchesAllTerms = searchTerms.every(term => combinedText.includes(term));
+            
+            if (matchesAllTerms) {
+                card.style.display = "flex";
+            } else {
+                card.style.display = "none";
+            }
+        }
+
+        for (let j = 0; j < categories.length; j++) {
+            const category = categories[j];
+            const cardsInCat = category.getElementsByClassName('link-card');
+            let visibleInCat = 0;
+            
+            for(let k = 0; k < cardsInCat.length; k++) {
+                if(cardsInCat[k].style.display === "flex") {
+                    visibleInCat++;
+                    totalVisibleCards++;
+                }
+            }
+            
+            if (visibleInCat > 0) {
+                category.style.display = "block";
+                category.style.opacity = "1";
+            } else {
+                category.style.display = "none";
+                category.style.opacity = "0";
+            }
+        }
+
+        const noResults = document.getElementById('no-results');
+        noResults.style.display = (totalVisibleCards === 0) ? "block" : "none";
+    }
+
+    // Helper to quickly reset all styles when search is cleared
+    function resetSearch() {
+        const cards = document.getElementsByClassName('link-card');
+        const categories = document.getElementsByClassName('category-group');
+        
+        for (let i = 0; i < cards.length; i++) {
+            cards[i].style.display = "flex";
+        }
+        for (let j = 0; j < categories.length; j++) {
+            categories[j].style.display = "block";
+            categories[j].style.opacity = "1";
+        }
+        document.getElementById('no-results').style.display = "none";
+    }
+
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('./sw.js')
+                .then(reg => console.log('Service Worker Registered'))
+                .catch(err => console.error('Service Worker Registration Failed', err));
+        });
+    }
+</script>
+
+</body>
+</html>
